@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+  <h2>Company Details</h2>
+
+  <table class="table table-dark" style="width: auto;">
+    <tr>
+      <td><strong>Name:</strong></td>
+      <td><%= @address.name.titleize %></td>
+    </tr>
+
+    <tr>
+      <td><strong>Company:</strong></td>
+      <td><%= @address.company.name.titleize %></td>
+    </tr>
+  </table>
+
+<%= link_to 'Edit', edit_address_path(@address),:class => "btn btn-primary text-white" %> |
+<%= link_to 'Back', addresses_path,:class => "btn btn-primary text-white" %>
