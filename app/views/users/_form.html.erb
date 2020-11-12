@@ -41,7 +41,7 @@
 
   <div class="field col-md-5">
     <%= form.label :city %>
-    <%= form.select(:city_id, City.all.collect {|c| [c.name, c.id]}, {:prompt => 'Select City'},{:class => "form-control"}) %>
+    <%= form.select(:city_id, {}, {:prompt => 'Select City'},{:class => "form-control", id: 'city'}) %>
   </div>
 
   <div class="field col-md-5">
@@ -58,3 +58,20 @@
     <%= form.submit  class: "btn btn-success" %>
   </div>
 <% end %>
+
+<script>
+      $(document).ready(function() {
+        $("#user_state_id").change(function() {
+          var state_id = $(this).val();
+          // console.log(state_id);
+          $.ajax({
+              url: '/get_city.js',
+              type: 'GET',
+              data: { state_id: state_id}
+              ,success: function (data, status, xhr) {
+                  // console.log("vgswh")
+              }
+            });
+        });
+      });
+</script>
